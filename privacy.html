@@ -44,7 +44,7 @@
         <p><strong>When you enquire</strong> through our enquiry form, by email or by phone: your name, email address, phone number (if given), location, the service you are interested in, and anything you choose to tell us in your message.</p>
         <p><strong>When we work together:</strong> your contact details, the address of the property, practical details needed to carry out the project (such as access arrangements and your preferences), the agreed scope and price, and invoicing and payment information.</p>
         <p><strong>Photographs:</strong> we may photograph spaces before and after a project to plan and document the work. We publish photographs (for example on this website or social media) only with your explicit consent, and never in a way that reveals your identity or the location of your home.</p>
-        <p><strong>When you visit this website:</strong> our hosting provider may automatically record technical information such as your IP address, browser type and the time of your visit in server logs, for security and to keep the website running. Our use of cookies is described in section 8 below. The website's fonts are hosted on our own server, so no data is sent to third parties when pages load.</p>
+        <p><strong>When you visit this website:</strong> our hosting provider may automatically record technical information such as your IP address, browser type and the time of your visit in server logs, for security and to keep the website running. Our use of cookies is described in section 8 below. The website's fonts are hosted on our own server. To show the current weather on the Costa del Sol in the footer, your browser requests weather data from Open-Meteo (open-meteo.com), a weather service based in the EU; like any website request, this reveals your IP address to Open-Meteo, but no cookies are set and no other personal data is sent. We rely on our legitimate interest in providing this feature (GDPR Art. 6(1)(f)).</p>
         <p>Please do not send us sensitive personal data (such as health information) through the enquiry form.</p>
 
         <h2>3. Why we use your data and on what legal basis</h2>
@@ -99,12 +99,34 @@
   </main>
 
   <footer class="footer">
-    <div class="brand">LAURA</div>
-    <p>Luxury Home Organisation</p>
-    <p class="small"><a href="#">Instagram</a></p>
-    <p class="small footer-legal"><a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="#" data-cookie-settings>Cookie settings</a></p>
-    <p class="small">© <span id="year"></span> Hustlaaja Oy. All rights reserved.</p>
-    <p class="small footer-credit">Designed by <a href="https://www.instagram.com/thechrishein/" target="_blank" rel="noopener">Chris Hein</a></p>
+    <div class="footer-top">
+      <div class="footer-weather" aria-live="polite"></div>
+      <a href="index.html" class="brand footer-logo" aria-label="Laura — home">LAURA</a>
+      <p class="footer-tagline">Luxury Home Organisation</p>
+    </div>
+    <div class="footer-cols">
+      <div class="footer-col">
+        <p class="footer-heading">Services</p>
+        <a href="services/wardrobe-organisation.html">Wardrobe</a>
+        <a href="services/kitchen-pantry-organisation.html">Kitchen &amp; Pantry</a>
+        <a href="services/home-organisation.html">Home</a>
+        <a href="services/move-in-home-setup.html">Move-In &amp; Setup</a>
+        <a href="services/villa-organisation.html">Villa</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Explore</p>
+        <a href="index.html#approach">Our approach</a>
+        <a href="services/index.html">All services</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#contact" data-enquire>Enquire</a>
+      </div>
+      <div class="footer-col">
+        <p class="footer-heading">Connect</p>
+        <a href="#" class="footer-social"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="1"/></svg><span>Instagram</span></a>
+        <a href="index.html#contact" data-enquire>Begin your project</a>
+      </div>
+    </div>
+    <p class="footer-bottom">Copyright © <span id="year"></span> · Hustlaaja Oy · <a href="privacy.html">Privacy Policy</a> · <a href="terms.html">Terms of Use</a> · <a href="#" data-cookie-settings>Cookie settings</a> · Designed by <a href="https://www.instagram.com/thechrishein/" target="_blank" rel="noopener">Chris Hein</a></p>
   </footer>
 
   <script src="script.js"></script>
