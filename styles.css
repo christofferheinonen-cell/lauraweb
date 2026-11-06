@@ -331,13 +331,13 @@ html.modal-open { overflow: hidden; }
 /* HOME ON MOBILE: hero text and "The experience" overlaid on their image/video */
 @media (max-width: 900px) {
   /* Hero */
-  .hero:not(.svc-hero) { position: relative; display: block; min-height: 75vh; min-height: 75svh; }
+  .hero:not(.svc-hero) { position: relative; display: block; min-height: 90vh; min-height: 90svh; }
   .hero:not(.svc-hero) .hero-media { position: absolute; inset: 0; height: auto; }
   /* Zoom the villa photo so the walkway is cut off symmetrically on both sides
      (walkway axis sits at ~48% of the image width) */
   .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 62% !important; }
   .hero:not(.svc-hero) .hero-text {
-    position: relative; z-index: 2; min-height: 75vh; min-height: 75svh;
+    position: relative; z-index: 2; min-height: 90vh; min-height: 90svh;
     display: flex; flex-direction: column; justify-content: flex-end;
     padding: 120px var(--gutter) 40px; color: #fff;
     background: linear-gradient(180deg, rgba(28,24,20,0) 22%, rgba(28,24,20,.42) 52%, rgba(28,24,20,.7) 100%);
