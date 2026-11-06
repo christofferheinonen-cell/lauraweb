@@ -315,6 +315,8 @@ html.modal-open { overflow: hidden; }
 .contact .form-privacy { text-align: center; }
 .form-privacy a { color: inherit; text-decoration: underline; text-underline-offset: 2px; }
 .footer-legal a { text-decoration: underline; text-underline-offset: 3px; }
+.footer .footer-credit { margin-top: 18px; font-size: 12px; }
+.footer-credit a { text-decoration: underline; text-underline-offset: 3px; }
 
 /* COOKIE BANNER */
 .cookie-banner {
