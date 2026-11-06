@@ -24,10 +24,18 @@ const io = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // Placeholder form handling (no backend yet)
-document.querySelector('.form').addEventListener('submit', e => {
-  e.preventDefault();
-  e.target.querySelector('.form-note').textContent = 'Thank you — we will be in touch shortly.';
-  e.target.reset();
-});
+const form = document.querySelector('.form');
+if (form) {
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    form.querySelector('.form-note').textContent = 'Thank you — we will be in touch shortly.';
+    form.reset();
+  });
+  // Pre-select the service when arriving from a service page (?service=slug#contact)
+  const wanted = new URLSearchParams(location.search).get('service');
+  const select = form.querySelector('select[name="service"]');
+  if (wanted && select && select.querySelector(`option[value="${CSS.escape(wanted)}"]`)) select.value = wanted;
+}
 
-document.getElementById('year').textContent = new Date().getFullYear();
+const year = document.getElementById('year');
+if (year) year.textContent = new Date().getFullYear();

@@ -6,3 +6,8 @@ To do before launch:
 - Replace image placeholders (`.img` blocks) with real photography (set `background-image`).
 - Confirm brand name, email, Instagram, location.
 - Connect the enquiry form to a backend (e.g. Formspree/Netlify Forms); it currently only shows a thank-you message.
+
+## Structure
+- `index.html` — home page; the services section links to one page per service.
+- `services/*.html` — one page per service (hero, what's included, investment, enquire, previous/next).
+  The "Enquire about this service" link opens the home page form with that service pre-selected.
