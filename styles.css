@@ -63,9 +63,10 @@ p { margin: 0 0 1em; }
   position: fixed; inset: 0 0 auto 0; z-index: 50;
   display: flex; align-items: center; justify-content: space-between;
   padding: 26px var(--gutter);
-  transition: background .4s, padding .4s;
+  background: rgba(246,242,236,.94); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(43,39,35,.08);
+  transition: padding .4s;
 }
-.nav.scrolled { background: rgba(246,242,236,.94); backdrop-filter: blur(8px); padding: 16px var(--gutter); border-bottom: 1px solid rgba(43,39,35,.08); }
+.nav.scrolled { padding: 16px var(--gutter); }
 .brand { font-family: var(--serif); font-size: 24px; letter-spacing: .42em; text-decoration: none; font-weight: 400; }
 .nav-links { display: flex; gap: 40px; align-items: center; }
 .nav-links a {
