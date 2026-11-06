@@ -331,13 +331,13 @@ html.modal-open { overflow: hidden; }
 /* HOME ON MOBILE: hero text and "The experience" overlaid on their image/video */
 @media (max-width: 900px) {
   /* Hero */
-  .hero:not(.svc-hero) { position: relative; display: block; min-height: 100vh; min-height: 100svh; }
+  .hero:not(.svc-hero) { position: relative; display: block; min-height: 66vh; min-height: 66svh; }
   .hero:not(.svc-hero) .hero-media { position: absolute; inset: 0; height: auto; }
   .hero:not(.svc-hero) .hero-text {
-    position: relative; z-index: 2; min-height: 100vh; min-height: 100svh;
+    position: relative; z-index: 2; min-height: 66vh; min-height: 66svh;
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 140px var(--gutter) 56px; color: #fff;
-    background: linear-gradient(180deg, rgba(28,24,20,0) 35%, rgba(28,24,20,.35) 60%, rgba(28,24,20,.68) 100%);
+    padding: 120px var(--gutter) 40px; color: #fff;
+    background: linear-gradient(180deg, rgba(28,24,20,0) 22%, rgba(28,24,20,.42) 52%, rgba(28,24,20,.7) 100%);
   }
   .hero:not(.svc-hero) .hero-text .eyebrow { color: rgba(255,255,255,.85); }
   .hero:not(.svc-hero) .hero-text h1 { color: #fff; margin-bottom: 32px; text-shadow: 0 1px 16px rgba(20,16,12,.3); }
