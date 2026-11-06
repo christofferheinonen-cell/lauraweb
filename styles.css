@@ -120,8 +120,8 @@ p { margin: 0 0 1em; }
 /* INTRO */
 .intro { padding: clamp(100px, 14vw, 200px) 0; text-align: left; }
 /* Text block sits just inside the logo's left edge (logo = page gutter) */
-.intro .container.narrow { max-width: none; margin: 0; padding-left: calc(var(--gutter) + clamp(0px, 4vw, 64px)); }
-.intro .container.narrow > * { max-width: 880px; }
+.intro .container.narrow, .svc-pricing .container.narrow { max-width: none; margin: 0; padding-left: calc(var(--gutter) + clamp(0px, 4vw, 64px)); }
+.intro .container.narrow > *, .svc-pricing .container.narrow > * { max-width: 880px; }
 .lead { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.5; color: var(--ink-soft); margin-bottom: 64px; }
 .statement { font-family: var(--serif); font-size: clamp(30px, 4vw, 52px); line-height: 1.2; margin: 0; }
 
@@ -165,7 +165,7 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 }
 .included li:last-child { border-bottom: 1px solid rgba(43,39,35,.14); }
 .included span { font-family: var(--sans); font-size: 11px; letter-spacing: .2em; color: var(--taupe); }
-.svc-pricing { padding: clamp(100px, 12vw, 170px) 0; background: var(--sand); text-align: center; }
+.svc-pricing { padding: clamp(100px, 12vw, 170px) 0; background: var(--sand); text-align: left; }
 .svc-pricing .lead { margin-bottom: 56px; }
 .svc-pricing .statement { margin-bottom: 56px; }
 .btn-link { display: inline-flex; align-items: center; gap: 22px; text-decoration: none; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; }
