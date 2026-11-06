@@ -42,6 +42,7 @@ dialog.innerHTML = `
   </button>
   <div class="modal-grid">
     <aside class="modal-call">
+      <p class="service-area">Costa del Sol <em>and other locations upon request</em></p>
       <p class="eyebrow">Prefer to talk?</p>
       <p class="modal-call-text">Call us directly and we'll arrange a consultation.</p>
       <a class="btn btn-call" href="tel:${PHONE}">Call ${PHONE_DISPLAY}</a>

@@ -278,6 +278,12 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
   content: ""; position: absolute; left: 16px; top: 50%; width: 5px; height: 5px; margin-top: -3px; border-radius: 50%; background: var(--taupe);
 }
 
+/* SERVICE AREA LINE */
+.service-area { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.35; color: var(--ink); }
+.service-area em { color: var(--ink-soft); }
+.modal-call .service-area { margin: 0 0 auto; padding-bottom: 40px; }
+.contact-body .service-area { margin: 0 auto 18px; }
+
 /* ENQUIRY POPUP */
 html.modal-open { overflow: hidden; }
 .enquire-modal {
@@ -388,6 +394,7 @@ html.modal-open { overflow: hidden; }
       .form { grid-template-columns: 1fr; }
   .modal-grid { grid-template-columns: 1fr; }
   .modal-call { padding: 64px 24px 28px; }
+  .modal-call .service-area { padding: 0 44px 28px 0; font-size: 20px; }
   .modal-call-text { font-size: 20px; margin-bottom: 20px; }
   .btn-call { width: 100%; }
   .form-actions .btn { flex: 1 1 100%; }
