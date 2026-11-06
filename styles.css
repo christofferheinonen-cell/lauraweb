@@ -324,3 +324,20 @@ html.modal-open { overflow: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) { .card-bg { transition: none; } .svc-card:hover .card-bg { transform: none; } }
+
+/* SERVICE PAGES ON MOBILE: title overlaid on the bottom of the hero image */
+@media (max-width: 900px) {
+  .svc-hero { display: grid; grid-template-columns: 1fr; min-height: 0; }
+  .svc-hero .hero-media { grid-row: 1; grid-column: 1; height: 72vh; height: 72svh; min-height: 440px; }
+  .svc-hero .hero-media.img::after { display: none; }
+  .svc-hero .hero-text { display: contents; }
+  .svc-hero .hero-text > * { margin-left: var(--gutter); margin-right: var(--gutter); }
+  .svc-hero .hero-text h1 {
+    grid-row: 1; grid-column: 1; align-self: end; z-index: 2; margin: 0;
+    padding: 120px var(--gutter) 32px; color: #fff; font-size: clamp(42px, 11vw, 60px);
+    background: linear-gradient(180deg, rgba(28,24,20,0) 0%, rgba(28,24,20,.28) 45%, rgba(28,24,20,.6) 100%);
+    text-shadow: 0 1px 16px rgba(20,16,12,.3);
+  }
+  .svc-hero .back-link { margin-top: 40px; margin-bottom: 32px; }
+  .svc-hero .hero-text .link-arrow { justify-self: start; margin-bottom: 72px; }
+}
