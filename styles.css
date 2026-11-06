@@ -186,7 +186,11 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .contact-body { padding: clamp(100px, 12vw, 180px) var(--gutter); max-width: 880px; margin: 0 auto; width: 100%; text-align: center; }
 .contact-body > p { margin-left: auto; margin-right: auto; }
 .contact .form { text-align: left; }
-.contact .btn { justify-self: center; }
+.form-actions { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+.form-actions .btn { grid-column: auto; text-decoration: none; text-align: center; line-height: 1.7; display: inline-block; }
+.contact .form-actions { justify-content: center; }
+.btn.btn-outline { background: transparent; color: var(--ink); }
+.btn.btn-outline:hover { background: var(--ink); color: var(--ivory); }
 .contact-body > p { color: var(--ink-soft); max-width: 520px; }
 .form { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; margin-top: 48px; }
 .form label { display: flex; flex-direction: column; gap: 8px; }
@@ -274,5 +278,6 @@ html.modal-open { overflow: hidden; }
   .modal-call { padding: 64px 24px 28px; }
   .modal-call-text { font-size: 20px; margin-bottom: 20px; }
   .btn-call { width: 100%; }
+  .form-actions .btn { flex: 1 1 100%; }
   .modal-form { padding: 36px 24px 32px; }
 }
