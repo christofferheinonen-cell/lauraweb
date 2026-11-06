@@ -442,7 +442,7 @@ html.modal-open { overflow: hidden; }
 }
 
 /* SERVICE PAGES: image card (left) + what's included (right) */
-.svc-top { padding: clamp(130px, 13vw, 170px) 0 clamp(80px, 10vw, 140px); }
+.svc-top { padding: clamp(110px, 10vw, 135px) 0 clamp(80px, 10vw, 140px); }
 .svc-top .back-link { margin-bottom: 36px; }
 .svc-top-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: stretch; }
 .svc-hero-card { position: relative; overflow: hidden; display: flex; color: #fff; min-height: clamp(520px, 44vw, 640px); }
@@ -454,7 +454,7 @@ html.modal-open { overflow: hidden; }
 .svc-top-detail { align-self: center; }
 .svc-top-detail .included li { display: block; font-size: clamp(20px, 1.9vw, 26px); padding: 22px 0; }
 @media (max-width: 900px) {
-  .svc-top { padding-top: 110px; }
+  .svc-top { padding-top: 104px; }
   .svc-top .back-link { margin-bottom: 24px; }
   .svc-top-grid { grid-template-columns: 1fr; gap: 56px; }
   .svc-hero-card { min-height: 50vh; min-height: 50svh; }
