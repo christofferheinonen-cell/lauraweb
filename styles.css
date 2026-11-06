@@ -143,10 +143,6 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .back-link { display: inline-flex; align-items: center; gap: 16px; text-decoration: none; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; margin-bottom: 56px; }
 .back-link .arrow-line { width: 28px; }
 .back-link:hover .arrow-line { width: 48px; }
-.svc-hero .hero-text h1 { font-size: clamp(44px, 6vw, 84px); margin-bottom: 32px; }
-.svc-hero .lead { margin-bottom: 28px; max-width: 520px; }
-.svc-hero .from { margin-bottom: 44px; }
-.svc-hero .back-link { margin-bottom: 48px; }
 .svc-included { padding: clamp(100px, 12vw, 170px) 0; }
 .included { list-style: none; margin: 0; padding: 0; }
 .included li {
@@ -311,22 +307,6 @@ html.modal-open { overflow: hidden; }
 
 @media (prefers-reduced-motion: reduce) { .card-bg { transition: none; } .svc-card:hover .card-bg { transform: none; } }
 
-/* SERVICE PAGES ON MOBILE: title overlaid on the bottom of the hero image */
-@media (max-width: 900px) {
-  .svc-hero { display: grid; grid-template-columns: 1fr; min-height: 0; }
-  .svc-hero .hero-media { grid-row: 1; grid-column: 1; height: 72vh; height: 72svh; min-height: 440px; }
-  .svc-hero .hero-media.img::after { display: none; }
-  .svc-hero .hero-text { display: contents; }
-  .svc-hero .hero-text > * { margin-left: var(--gutter); margin-right: var(--gutter); }
-  .svc-hero .hero-text h1 {
-    grid-row: 1; grid-column: 1; align-self: end; z-index: 2; margin: 0;
-    padding: 120px var(--gutter) 32px; color: #fff; font-size: clamp(42px, 11vw, 60px);
-    background: linear-gradient(180deg, rgba(28,24,20,0) 0%, rgba(28,24,20,.28) 45%, rgba(28,24,20,.6) 100%);
-    text-shadow: 0 1px 16px rgba(20,16,12,.3);
-  }
-  .svc-hero .back-link { margin-top: 40px; margin-bottom: 32px; }
-  .svc-hero .hero-text .link-arrow { justify-self: start; margin-bottom: 72px; }
-}
 
 /* HOME ON MOBILE: hero text and "The experience" overlaid on their image/video */
 @media (max-width: 900px) {
@@ -370,4 +350,23 @@ html.modal-open { overflow: hidden; }
    (walkway axis at ~48% of the image width; mobile values are set in the mobile block above) */
 @media (min-width: 901px) {
   .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 70% !important; }
+}
+
+/* SERVICE PAGES: image card (left) + what's included (right) */
+.svc-top { padding: clamp(130px, 13vw, 170px) 0 clamp(80px, 10vw, 140px); }
+.svc-top .back-link { margin-bottom: 36px; }
+.svc-top-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: stretch; }
+.svc-hero-card { position: relative; overflow: hidden; display: flex; color: #fff; min-height: clamp(520px, 44vw, 640px); }
+.svc-hero-card::before { content: ""; position: absolute; inset: 0; z-index: 1; background: linear-gradient(180deg, rgba(28,24,20,.1) 0%, rgba(28,24,20,.32) 35%, rgba(28,24,20,.68) 70%, rgba(28,24,20,.86) 100%); }
+.svc-hero-card-content { position: relative; z-index: 2; margin-top: auto; padding: clamp(28px, 3.2vw, 48px); }
+.svc-hero-card h1 { color: #fff; font-weight: 400; font-size: clamp(34px, 3.4vw, 48px); line-height: 1.05; margin-bottom: 16px; text-shadow: 0 1px 14px rgba(20,16,12,.35); }
+.svc-hero-card .card-tagline { margin-bottom: 14px; text-shadow: 0 1px 14px rgba(20,16,12,.35); }
+.svc-hero-card-desc { color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.7; margin: 0; max-width: 460px; }
+.svc-top-detail { align-self: center; }
+.svc-top-detail .included li { font-size: clamp(20px, 1.9vw, 26px); padding: 22px 0; }
+@media (max-width: 900px) {
+  .svc-top { padding-top: 110px; }
+  .svc-top .back-link { margin-bottom: 24px; }
+  .svc-top-grid { grid-template-columns: 1fr; gap: 56px; }
+  .svc-hero-card { min-height: 70vh; min-height: 70svh; }
 }
