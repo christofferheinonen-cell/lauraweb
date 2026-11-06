@@ -190,8 +190,7 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .card-kicker { font-size: 10px; letter-spacing: .26em; text-transform: uppercase; color: rgba(255,255,255,.92); margin-bottom: 14px; }
 .card-content > :not(.card-btn) { text-shadow: 0 1px 14px rgba(20,16,12,.35); }
 .card-title { font-family: var(--serif); font-weight: 400; font-size: clamp(28px, 2.6vw, 38px); line-height: 1.08; margin-bottom: 14px; color: #fff; }
-.card-tagline { font-size: 16px; font-weight: 400; line-height: 1.5; color: #fff; margin-bottom: 14px; }
-.card-body-text { font-size: 14.5px; color: rgba(255,255,255,.82); line-height: 1.7; margin-bottom: 26px; }
+.card-tagline { font-size: 16px; font-weight: 400; line-height: 1.5; color: #fff; margin-bottom: 28px; max-width: 420px; }
 .card-btn {
   display: inline-block; margin-top: auto; background: transparent; color: #fff; border: 1px solid rgba(255,255,255,.85);
   padding: 15px 28px; font-size: 11px; letter-spacing: .24em; text-transform: uppercase; font-weight: 400;
