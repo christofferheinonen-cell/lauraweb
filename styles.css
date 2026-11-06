@@ -363,10 +363,10 @@ html.modal-open { overflow: hidden; }
 .svc-hero-card .card-tagline { margin-bottom: 14px; text-shadow: 0 1px 14px rgba(20,16,12,.35); }
 .svc-hero-card-desc { color: rgba(255,255,255,.82); font-size: 15px; line-height: 1.7; margin: 0; max-width: 460px; }
 .svc-top-detail { align-self: center; }
-.svc-top-detail .included li { font-size: clamp(20px, 1.9vw, 26px); padding: 22px 0; }
+.svc-top-detail .included li { display: block; font-size: clamp(20px, 1.9vw, 26px); padding: 22px 0; }
 @media (max-width: 900px) {
   .svc-top { padding-top: 110px; }
   .svc-top .back-link { margin-bottom: 24px; }
   .svc-top-grid { grid-template-columns: 1fr; gap: 56px; }
-  .svc-hero-card { min-height: 70vh; min-height: 70svh; }
+  .svc-hero-card { min-height: 42vh; min-height: 42svh; }
 }
