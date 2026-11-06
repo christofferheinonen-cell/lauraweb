@@ -16,3 +16,4 @@ To do before launch:
 In `services/<service>.html`, replace
 `<div class="hero-media img" data-label="Hero image — ..."></div>` with
 `<div class="hero-media img photo" style="background-image:url(../images/YOUR-FILE.jpg)" role="img" aria-label="Short description"></div>`
+- `services/index.html` — Services page: all services as cards (linked from the menu and each service page's "All services").
