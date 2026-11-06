@@ -39,3 +39,8 @@ if (form) {
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
+
+// Respect reduced-motion: keep background videos paused on their poster frame
+if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
+}
