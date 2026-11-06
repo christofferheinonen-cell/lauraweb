@@ -333,6 +333,9 @@ html.modal-open { overflow: hidden; }
   /* Hero */
   .hero:not(.svc-hero) { position: relative; display: block; min-height: 66vh; min-height: 66svh; }
   .hero:not(.svc-hero) .hero-media { position: absolute; inset: 0; height: auto; }
+  /* Zoom the villa photo so the walkway is cut off symmetrically on both sides
+     (walkway axis sits at ~48% of the image width) */
+  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 62% !important; }
   .hero:not(.svc-hero) .hero-text {
     position: relative; z-index: 2; min-height: 66vh; min-height: 66svh;
     display: flex; flex-direction: column; justify-content: flex-end;
