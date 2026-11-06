@@ -23,3 +23,6 @@ In `services/<service>.html`, replace
 - Fonts are self-hosted in `fonts/` (SIL OFL) so the site makes no third-party requests and sets no cookies.
 - Cookie banner (script.js): Accept/Decline, choice kept 12 months in localStorage, reopened via "Cookie settings" in the footer. To add analytics later, include its script as `<script type="text/plain" data-consent="analytics" ...>` — it only runs after Accept — and update section 8 of privacy.html with the provider and cookies.
 - TODO before launch: add the registered address (highlighted placeholder on both pages).
+
+## Clean URLs
+`vercel.json` turns on `cleanUrls`, so pages live at `/`, `/services`, `/services/villa-organisation`, `/privacy`, `/terms` (old `.html` addresses redirect). Internal links are written as root paths (`/services/...`), so preview the site through a local server that maps `/x` to `x.html` (e.g. `npx vercel dev`), not by opening the files directly.

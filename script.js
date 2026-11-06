@@ -25,8 +25,6 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---------- Enquiry popup ----------
 const PHONE = '+358509183710';
-// Site root, worked out from this script's location, so links work from any page
-const SITE_ROOT = new URL('.', document.currentScript.src).href;
 const PHONE_DISPLAY = '+358 50 918 3710';
 const SERVICES = [
   ['wardrobe-organisation', 'Wardrobe Organisation'],
@@ -65,7 +63,7 @@ dialog.innerHTML = `
         <label class="full"><span>Message</span><textarea name="message" rows="3"></textarea></label>
         <button type="submit" class="btn">Send enquiry</button>
         <p class="form-note" role="status" aria-live="polite"></p>
-        <p class="form-privacy">We use your details only to respond to your enquiry. See our <a href="${SITE_ROOT}privacy.html">Privacy Policy</a>.</p>
+        <p class="form-privacy">We use your details only to respond to your enquiry. See our <a href="/privacy">Privacy Policy</a>.</p>
       </form>
     </div>
   </div>`;
@@ -242,7 +240,7 @@ banner.setAttribute('aria-label', 'Cookie consent');
 banner.innerHTML = `
   <p class="eyebrow">Cookies</p>
   <p class="cookie-text">We respect your privacy. This site only uses what is needed to run it and to remember this choice.
-    Optional analytics cookies are used only if you accept. <a href="${SITE_ROOT}privacy.html#cookies">Read more</a></p>
+    Optional analytics cookies are used only if you accept. <a href="/privacy#cookies">Read more</a></p>
   <div class="cookie-actions">
     <button type="button" class="btn cookie-accept">Accept</button>
     <button type="button" class="btn btn-outline cookie-decline">Decline</button>
