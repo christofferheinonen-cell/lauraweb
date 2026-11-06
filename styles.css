@@ -404,7 +404,7 @@ html.modal-open { overflow: hidden; }
   .hero:not(.svc-hero) .hero-media { position: absolute; inset: 0; height: auto; }
   /* Zoom the villa photo so the walkway is cut off symmetrically on both sides
      (walkway axis sits at ~48% of the image width) */
-  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 62% !important; }
+  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 50% !important; }
   .hero:not(.svc-hero) .hero-text {
     position: relative; z-index: 2; min-height: 90vh; min-height: 90svh;
     display: flex; flex-direction: column; justify-content: flex-end;
@@ -438,7 +438,7 @@ html.modal-open { overflow: hidden; }
 /* HOME HERO ON DESKTOP: zoom the villa photo so the walkway is cut off symmetrically
    (walkway axis at ~48% of the image width; mobile values are set in the mobile block above) */
 @media (min-width: 901px) {
-  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 70% !important; }
+  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 50% !important; }
 }
 
 /* SERVICE PAGES: image card (left) + what's included (right) */
