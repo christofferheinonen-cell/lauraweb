@@ -365,3 +365,9 @@ html.modal-open { overflow: hidden; }
   .card-kicker { font-size: 9.5px; margin-bottom: 12px; }
   .card-btn { font-size: 10.5px; padding: 14px 26px; }
 }
+
+/* HOME HERO ON DESKTOP: zoom the villa photo so the walkway is cut off symmetrically
+   (walkway axis at ~48% of the image width; mobile values are set in the mobile block above) */
+@media (min-width: 901px) {
+  .hero:not(.svc-hero) .hero-media.photo { background-size: 139% auto; background-position: 42.8% 70% !important; }
+}
