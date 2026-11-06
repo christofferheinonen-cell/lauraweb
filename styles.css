@@ -354,3 +354,11 @@ html.modal-open { overflow: hidden; }
   .split-text .steps h3 { color: #fff; }
   .split-text .steps p { color: rgba(255,255,255,.82); }
 }
+
+/* SERVICE CARDS ON DESKTOP: slightly smaller type (mobile unchanged) */
+@media (min-width: 901px) {
+  .card-title { font-size: clamp(24px, 2.2vw, 32px); margin-bottom: 12px; }
+  .card-tagline { font-size: 15px; margin-bottom: 24px; }
+  .card-kicker { font-size: 9.5px; margin-bottom: 12px; }
+  .card-btn { font-size: 10.5px; padding: 14px 26px; }
+}
