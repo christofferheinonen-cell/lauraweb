@@ -442,7 +442,7 @@ html.modal-open { overflow: hidden; }
 }
 
 /* SERVICE PAGES: image card (left) + what's included (right) */
-.svc-top { padding: clamp(110px, 10vw, 135px) 0 clamp(80px, 10vw, 140px); }
+.svc-top { padding: 90px 0 clamp(80px, 10vw, 140px); }
 .svc-top .back-link { margin-bottom: 36px; }
 .svc-top-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(40px, 6vw, 96px); align-items: stretch; }
 .svc-hero-card { position: relative; overflow: hidden; display: flex; color: #fff; min-height: clamp(520px, 44vw, 640px); }
