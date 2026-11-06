@@ -260,38 +260,3 @@ document.querySelectorAll('[data-cookie-settings]').forEach(el => el.addEventLis
 const consent = readConsent();
 if (!consent) setTimeout(showBanner, 600);
 else if (consent.analytics) activateConsentedScripts();
-
-// ---------- Footer: current weather on the Costa del Sol ----------
-// Data: Open-Meteo (open-meteo.com), point near Marbella. Cached for 30 minutes per browser session.
-(function () {
-  const el = document.querySelector('.footer-weather');
-  if (!el) return;
-  const URL_ = 'https://api.open-meteo.com/v1/forecast?latitude=36.51&longitude=-4.88&current=temperature_2m,weather_code,is_day&timezone=Europe%2FMadrid';
-  const KEY = 'laura-weather';
-  const describe = (code, day) => {
-    if (code === 0) return day ? 'Sunny' : 'Clear';
-    if (code <= 2) return 'Partly cloudy';
-    if (code === 3) return 'Cloudy';
-    if (code === 45 || code === 48) return 'Foggy';
-    if (code >= 51 && code <= 57) return 'Drizzle';
-    if ((code >= 61 && code <= 67) || (code >= 80 && code <= 82)) return 'Rain';
-    if ((code >= 71 && code <= 77) || code === 85 || code === 86) return 'Snow';
-    if (code >= 95) return 'Thunderstorms';
-    return '';
-  };
-  const time = () => new Intl.DateTimeFormat('en-GB', { hour: '2-digit', minute: '2-digit', timeZone: 'Europe/Madrid' }).format(new Date());
-  function render(d) {
-    const t = Math.round(d.temperature_2m);
-    const desc = describe(d.weather_code, d.is_day);
-    el.innerHTML = `Costa del Sol · ${time()}<br><strong>${t}°C</strong>${desc ? ' · ' + desc : ''}`;
-  }
-  try {
-    const cached = JSON.parse(sessionStorage.getItem(KEY));
-    if (cached && Date.now() - cached.at < 30 * 60 * 1000) { render(cached.data); return; }
-  } catch (e) {}
-  fetch(URL_).then(r => (r.ok ? r.json() : Promise.reject())).then(j => {
-    if (!j.current) return;
-    render(j.current);
-    try { sessionStorage.setItem(KEY, JSON.stringify({ at: Date.now(), data: j.current })); } catch (e) {}
-  }).catch(() => { el.textContent = ''; });
-})();
