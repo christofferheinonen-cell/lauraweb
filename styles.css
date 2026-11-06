@@ -118,7 +118,7 @@ p { margin: 0 0 1em; }
 .link-arrow:hover::after { transform: translateX(6px); }
 
 /* INTRO */
-.intro { padding: clamp(100px, 14vw, 200px) 0; text-align: center; }
+.intro { padding: clamp(100px, 14vw, 200px) 0; text-align: left; }
 .lead { font-family: var(--serif); font-size: clamp(22px, 2.4vw, 30px); line-height: 1.5; color: var(--ink-soft); margin-bottom: 64px; }
 .statement { font-family: var(--serif); font-size: clamp(30px, 4vw, 52px); line-height: 1.2; margin: 0; }
 
