@@ -126,7 +126,7 @@ p { margin: 0 0 1em; }
 .statement { font-family: var(--serif); font-size: clamp(30px, 4vw, 52px); line-height: 1.2; margin: 0; }
 
 /* SPLIT */
-.split { display: grid; grid-template-columns: 1fr 1fr; background: var(--sand); }
+.split { display: grid; grid-template-columns: 1fr 1fr; background: var(--ivory); }
 .split-media { min-height: 520px; }
 .media-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 /* Framed video: shown near its native size so a low-resolution source stays crisp */
