@@ -339,8 +339,8 @@ html.modal-open { overflow: hidden; }
   .hero:not(.svc-hero) .hero-text {
     position: relative; z-index: 2; min-height: 90vh; min-height: 90svh;
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 120px var(--gutter) 40px; color: #fff;
-    background: linear-gradient(180deg, rgba(28,24,20,0) 22%, rgba(28,24,20,.42) 52%, rgba(28,24,20,.7) 100%);
+    padding: 120px var(--gutter) calc(40px + 13vh); padding-bottom: calc(40px + 13svh); color: #fff;
+    background: linear-gradient(180deg, rgba(28,24,20,0) 15%, rgba(28,24,20,.45) 45%, rgba(28,24,20,.66) 80%, rgba(28,24,20,.7) 100%);
   }
   .hero:not(.svc-hero) .hero-text .eyebrow { color: rgba(255,255,255,.85); }
   .hero:not(.svc-hero) .hero-text h1 { color: #fff; margin-bottom: 32px; text-shadow: 0 1px 16px rgba(20,16,12,.3); }
