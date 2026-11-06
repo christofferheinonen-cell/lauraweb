@@ -20,5 +20,6 @@ In `services/<service>.html`, replace
 
 ## Legal
 - `privacy.html` (GDPR privacy policy) and `terms.html` (terms of use + company details), linked from every footer and from the enquiry forms.
-- Fonts are self-hosted in `fonts/` (SIL OFL) so the site makes no third-party requests and sets no cookies — no cookie banner needed. If analytics or other third-party embeds are added later, the privacy policy and a consent banner must be updated.
+- Fonts are self-hosted in `fonts/` (SIL OFL) so the site makes no third-party requests and sets no cookies.
+- Cookie banner (script.js): Accept/Decline, choice kept 12 months in localStorage, reopened via "Cookie settings" in the footer. To add analytics later, include its script as `<script type="text/plain" data-consent="analytics" ...>` — it only runs after Accept — and update section 8 of privacy.html with the provider and cookies.
 - TODO before launch: add the registered address (highlighted placeholder on both pages).

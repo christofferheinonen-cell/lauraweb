@@ -210,3 +210,53 @@ if (year) year.textContent = new Date().getFullYear();
 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
   document.querySelectorAll('video[autoplay]').forEach(v => { v.removeAttribute('autoplay'); v.pause(); });
 }
+
+// ---------- Cookie consent ----------
+// The site currently sets no cookies and loads no analytics. This banner is ready for the future:
+// any optional script added as  <script type="text/plain" data-consent="analytics" src="..."></script>
+// (or with inline code) is only activated after the visitor clicks "Accept".
+// The choice itself is stored in localStorage, which is strictly necessary and needs no consent.
+const CONSENT_KEY = 'laura-consent';
+const CONSENT_MAX_AGE = 365 * 24 * 60 * 60 * 1000; // ask again after 12 months
+function readConsent() {
+  try {
+    const c = JSON.parse(localStorage.getItem(CONSENT_KEY));
+    return c && Date.now() - c.date < CONSENT_MAX_AGE ? c : null;
+  } catch (e) { return null; }
+}
+function saveConsent(analytics) {
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ analytics, date: Date.now() })); } catch (e) {}
+}
+function activateConsentedScripts() {
+  document.querySelectorAll('script[type="text/plain"][data-consent="analytics"]').forEach(old => {
+    const s = document.createElement('script');
+    [...old.attributes].forEach(a => { if (a.name !== 'type' && a.name !== 'data-consent') s.setAttribute(a.name, a.value); });
+    s.text = old.text;
+    old.replaceWith(s);
+  });
+}
+const banner = document.createElement('div');
+banner.className = 'cookie-banner';
+banner.setAttribute('role', 'region');
+banner.setAttribute('aria-label', 'Cookie consent');
+banner.innerHTML = `
+  <p class="eyebrow">Cookies</p>
+  <p class="cookie-text">We respect your privacy. This site only uses what is needed to run it and to remember this choice.
+    Optional analytics cookies are used only if you accept. <a href="${SITE_ROOT}privacy.html#cookies">Read more</a></p>
+  <div class="cookie-actions">
+    <button type="button" class="btn cookie-accept">Accept</button>
+    <button type="button" class="btn btn-outline cookie-decline">Decline</button>
+  </div>`;
+document.body.appendChild(banner);
+const showBanner = () => banner.classList.add('show');
+const hideBanner = () => banner.classList.remove('show');
+banner.querySelector('.cookie-accept').addEventListener('click', () => { saveConsent(true); hideBanner(); activateConsentedScripts(); });
+banner.querySelector('.cookie-decline').addEventListener('click', () => {
+  const had = readConsent();
+  saveConsent(false); hideBanner();
+  if (had && had.analytics) location.reload(); // stop optional scripts that were already running
+});
+document.querySelectorAll('[data-cookie-settings]').forEach(el => el.addEventListener('click', e => { e.preventDefault(); showBanner(); }));
+const consent = readConsent();
+if (!consent) setTimeout(showBanner, 600);
+else if (consent.analytics) activateConsentedScripts();
