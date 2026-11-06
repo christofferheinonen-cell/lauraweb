@@ -17,3 +17,8 @@ In `services/<service>.html`, replace
 `<div class="hero-media img" data-label="Hero image — ..."></div>` with
 `<div class="hero-media img photo" style="background-image:url(../images/YOUR-FILE.jpg)" role="img" aria-label="Short description"></div>`
 - `services/index.html` — Services page: all services as cards (linked from the menu and each service page's "All services").
+
+## Legal
+- `privacy.html` (GDPR privacy policy) and `terms.html` (terms of use + company details), linked from every footer and from the enquiry forms.
+- Fonts are self-hosted in `fonts/` (SIL OFL) so the site makes no third-party requests and sets no cookies — no cookie banner needed. If analytics or other third-party embeds are added later, the privacy policy and a consent banner must be updated.
+- TODO before launch: add the registered address (highlighted placeholder on both pages).

@@ -25,6 +25,8 @@ document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
 // ---------- Enquiry popup ----------
 const PHONE = '+358509183710';
+// Site root, worked out from this script's location, so links work from any page
+const SITE_ROOT = new URL('.', document.currentScript.src).href;
 const PHONE_DISPLAY = '+358 50 918 3710';
 const SERVICES = [
   ['wardrobe-organisation', 'Wardrobe Organisation'],
@@ -63,6 +65,7 @@ dialog.innerHTML = `
         <label class="full"><span>Message</span><textarea name="message" rows="3"></textarea></label>
         <button type="submit" class="btn">Send enquiry</button>
         <p class="form-note" role="status" aria-live="polite"></p>
+        <p class="form-privacy">We use your details only to respond to your enquiry. See our <a href="${SITE_ROOT}privacy.html">Privacy Policy</a>.</p>
       </form>
     </div>
   </div>`;
