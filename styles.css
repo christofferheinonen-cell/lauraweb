@@ -327,3 +327,30 @@ html.modal-open { overflow: hidden; }
   .svc-hero .back-link { margin-top: 40px; margin-bottom: 32px; }
   .svc-hero .hero-text .link-arrow { justify-self: start; margin-bottom: 72px; }
 }
+
+/* HOME ON MOBILE: hero text and "The experience" overlaid on their image/video */
+@media (max-width: 900px) {
+  /* Hero */
+  .hero:not(.svc-hero) { position: relative; display: block; min-height: 100vh; min-height: 100svh; }
+  .hero:not(.svc-hero) .hero-media { position: absolute; inset: 0; height: auto; }
+  .hero:not(.svc-hero) .hero-text {
+    position: relative; z-index: 2; min-height: 100vh; min-height: 100svh;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 140px var(--gutter) 56px; color: #fff;
+    background: linear-gradient(180deg, rgba(28,24,20,0) 35%, rgba(28,24,20,.35) 60%, rgba(28,24,20,.68) 100%);
+  }
+  .hero:not(.svc-hero) .hero-text .eyebrow { color: rgba(255,255,255,.85); }
+  .hero:not(.svc-hero) .hero-text h1 { color: #fff; margin-bottom: 32px; text-shadow: 0 1px 16px rgba(20,16,12,.3); }
+  .hero:not(.svc-hero) .link-arrow { color: #fff; border-color: #fff; align-self: flex-start; }
+
+  /* The experience */
+  .split { position: relative; display: block; }
+  .split-media, .split-media.img { position: absolute; inset: 0; min-height: 0; }
+  .split-text { position: relative; z-index: 2; padding: 96px var(--gutter); background: rgba(28,24,20,.52); color: #fff; }
+  .split-text .eyebrow { color: rgba(255,255,255,.8); }
+  .split-text h2 { color: #fff; }
+  .split-text .steps li { border-color: rgba(255,255,255,.25); }
+  .split-text .steps span { color: rgba(255,255,255,.7); }
+  .split-text .steps h3 { color: #fff; }
+  .split-text .steps p { color: rgba(255,255,255,.82); }
+}
