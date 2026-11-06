@@ -156,11 +156,6 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .svc-pricing .lead { margin-bottom: 56px; }
 .svc-pricing .statement { margin-bottom: 56px; }
 .btn-link { display: inline-flex; align-items: center; gap: 22px; text-decoration: none; font-size: 11px; letter-spacing: .26em; text-transform: uppercase; font-weight: 400; }
-.svc-pager { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding-top: clamp(70px, 8vw, 110px); padding-bottom: clamp(70px, 8vw, 110px); }
-.svc-pager a { text-decoration: none; display: flex; flex-direction: column; }
-.svc-pager .eyebrow { margin-bottom: 12px; }
-.svc-pager .next { text-align: right; align-items: flex-end; }
-.pager-title { display: inline-flex; align-items: center; gap: 20px; font-family: var(--serif); font-size: clamp(22px, 2.6vw, 34px); line-height: 1.2; }
 
 /* SERVICES PAGE: CARDS */
 .page-head { padding: clamp(150px, 16vw, 220px) 0 clamp(60px, 7vw, 100px); text-align: center; }
@@ -294,9 +289,7 @@ html.modal-open { overflow: hidden; }
   .svc-card, .svc-card.card-bottom, .svc-card.card-top { grid-column: auto; min-height: 390px; }
   .card-top::before, .card-bottom::before { background: linear-gradient(180deg, rgba(28,24,20,.6) 0%, rgba(28,24,20,.5) 50%, rgba(28,24,20,.72) 100%); }
   .included li { grid-template-columns: 44px 1fr; }
-  .svc-pager { grid-template-columns: 1fr; }
-  .pager-title .arrow-line { width: 28px; }
-  .form { grid-template-columns: 1fr; }
+      .form { grid-template-columns: 1fr; }
   .modal-grid { grid-template-columns: 1fr; }
   .modal-call { padding: 64px 24px 28px; }
   .modal-call-text { font-size: 20px; margin-bottom: 20px; }
