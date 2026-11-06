@@ -282,6 +282,8 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .service-area { font-family: var(--serif); font-size: clamp(20px, 2vw, 24px); line-height: 1.35; color: var(--ink); }
 .service-area em { color: var(--ink-soft); }
 .modal-call .service-area { margin: 0 0 auto; padding-bottom: 40px; }
+/* Desktop: line up with "Begin your project." (offset = eyebrow + heading ascent) */
+@media (min-width: 901px) { .modal-call .service-area { margin-top: calc(32px + clamp(21.25px, 2.5vw, 32.5px)); } }
 .contact-body .service-area { margin: 0 auto 18px; }
 
 /* ENQUIRY POPUP */
