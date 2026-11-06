@@ -71,6 +71,7 @@ document.body.appendChild(dialog);
 function openEnquiry(service) {
   const select = dialog.querySelector('select[name="service"]');
   select.value = service && select.querySelector(`option[value="${CSS.escape(service)}"]`) ? service : '';
+  select.dispatchEvent(new Event('change'));
   dialog.querySelector('.form-note').textContent = '';
   dialog.showModal();
   document.documentElement.classList.add('modal-open');
@@ -98,6 +99,106 @@ document.querySelectorAll('.form').forEach(form => {
 const wanted = new URLSearchParams(location.search).get('service');
 const homeSelect = document.querySelector('#contact select[name="service"]');
 if (wanted && homeSelect && homeSelect.querySelector(`option[value="${CSS.escape(wanted)}"]`)) homeSelect.value = wanted;
+
+// ---------- Custom dropdown for the service picker (desktop only) ----------
+// Browsers don't allow styling the open list of a native <select>, so on devices with a mouse
+// we show a site-styled list instead. The native <select> stays in the form (hidden) and holds
+// the value; phones and tablets keep their native picker, which is easier to use by touch.
+function enhanceSelect(select) {
+  const wrap = document.createElement('div');
+  wrap.className = 'cselect';
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.className = 'cselect-button';
+  button.setAttribute('aria-haspopup', 'listbox');
+  button.setAttribute('aria-expanded', 'false');
+  const list = document.createElement('ul');
+  list.className = 'cselect-list';
+  list.setAttribute('role', 'listbox');
+  const id = 'cselect-' + Math.random().toString(36).slice(2, 8);
+  list.id = id;
+  button.setAttribute('aria-controls', id);
+  const opts = [...select.options].map((o, i) => {
+    const li = document.createElement('li');
+    li.setAttribute('role', 'option');
+    li.id = `${id}-${i}`;
+    li.className = 'cselect-option' + (o.value === '' ? ' is-placeholder' : '');
+    li.textContent = o.textContent;
+    li.addEventListener('mousedown', e => e.preventDefault());
+    li.addEventListener('click', () => { choose(i); close(); button.focus(); });
+    li.addEventListener('mousemove', () => setActive(i));
+    list.appendChild(li);
+    return li;
+  });
+  let active = -1;
+  function setActive(i) {
+    active = i;
+    opts.forEach((li, k) => li.classList.toggle('is-active', k === i));
+    if (i >= 0) { button.setAttribute('aria-activedescendant', opts[i].id); opts[i].scrollIntoView({ block: 'nearest' }); }
+  }
+  function sync() {
+    const i = select.selectedIndex;
+    button.textContent = select.options[i] ? select.options[i].textContent : '';
+    button.classList.toggle('is-placeholder', !select.value);
+    opts.forEach((li, k) => li.setAttribute('aria-selected', String(k === i)));
+  }
+  function choose(i) { select.selectedIndex = i; select.dispatchEvent(new Event('change', { bubbles: true })); }
+  function open() {
+    // Open upwards when there isn't room below (e.g. near the bottom of the popup)
+    // Inside the popup: let the list hang outside the popup's edge when the popup isn't scrolling
+    const dlg = wrap.closest('dialog');
+    list.style.display = 'none';   // measure the popup without the (hidden) list itself
+    const clipped = dlg && dlg.scrollHeight > dlg.clientHeight + 1;
+    list.style.display = '';
+    if (dlg && !clipped) dlg.classList.add('cselect-overflow');
+    const box = (clipped ? dlg : document.documentElement).getBoundingClientRect();
+    const r = button.getBoundingClientRect();
+    const bottomEdge = Math.min(box.bottom, window.innerHeight), topEdge = Math.max(box.top, 0);
+    const need = Math.min(list.scrollHeight, 320) + 16;
+    const up = bottomEdge - r.bottom < need && r.top - topEdge > bottomEdge - r.bottom;
+    wrap.classList.toggle('up', up);
+    // never taller than the space available, so no option is cut off
+    list.style.maxHeight = Math.max(160, Math.min(320, (up ? r.top - topEdge : bottomEdge - r.bottom) - 16)) + 'px';
+    wrap.classList.add('open'); button.setAttribute('aria-expanded', 'true');
+    setActive(Math.max(0, select.selectedIndex));
+  }
+  function close() {
+    wrap.classList.remove('open'); button.setAttribute('aria-expanded', 'false');
+    const dlg = wrap.closest('dialog'); if (dlg) dlg.classList.remove('cselect-overflow');
+  }
+  button.addEventListener('click', () => (wrap.classList.contains('open') ? close() : open()));
+  // Focus stays on the button; arrow keys move the highlight (aria-activedescendant pattern)
+  button.addEventListener('keydown', e => {
+    const isOpen = wrap.classList.contains('open');
+    if (!isOpen) {
+      if (['ArrowDown', 'ArrowUp', 'Enter', ' '].includes(e.key)) { e.preventDefault(); open(); }
+      return;
+    }
+    if (e.key === 'ArrowDown') { e.preventDefault(); setActive(Math.min(opts.length - 1, active + 1)); }
+    else if (e.key === 'ArrowUp') { e.preventDefault(); setActive(Math.max(0, active - 1)); }
+    else if (e.key === 'Home') { e.preventDefault(); setActive(0); }
+    else if (e.key === 'End') { e.preventDefault(); setActive(opts.length - 1); }
+    else if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); choose(active); close(); }
+    else if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); }
+    else if (e.key === 'Tab') { close(); }
+  });
+  button.addEventListener('blur', () => close());
+  // In the popup, Esc closes an open list first, not the whole popup
+  const dlg0 = select.closest('dialog');
+  if (dlg0) dlg0.addEventListener('cancel', e => { if (wrap.classList.contains('open')) { e.preventDefault(); close(); } });
+  document.addEventListener('click', e => { if (!wrap.contains(e.target)) close(); });
+  select.addEventListener('change', sync);
+  select.form && select.form.addEventListener('reset', () => setTimeout(sync, 0));
+  wrap.append(button, list);
+  select.classList.add('cselect-native');
+  select.tabIndex = -1;
+  select.setAttribute('aria-hidden', 'true');
+  select.before(wrap);   // first in the label, so clicking the label text opens it
+  sync();
+}
+if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+  document.querySelectorAll('.form select[name="service"]').forEach(enhanceSelect);
+}
 
 const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();

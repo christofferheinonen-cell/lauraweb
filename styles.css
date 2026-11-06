@@ -230,6 +230,41 @@ a:hover .arrow-line, a:focus-visible .arrow-line { width: 80px; }
 .btn:hover { background: transparent; color: var(--ink); }
 .form-note { grid-column: 1 / -1; margin: 0; color: var(--taupe); font-size: 14px; }
 
+/* CUSTOM SERVICE PICKER (desktop) */
+.enquire-modal.cselect-overflow { overflow: visible; }
+.cselect-native { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.cselect { position: relative; }
+.cselect-button {
+  width: 100%; text-align: left; font: inherit; color: var(--ink); background: transparent; cursor: pointer;
+  border: 0; border-bottom: 1px solid rgba(43,39,35,.3); border-radius: 0; padding: 8px 28px 8px 0; position: relative;
+  transition: border-color .3s;
+}
+.cselect-button::after {
+  content: ""; position: absolute; right: 4px; top: 50%; width: 7px; height: 7px; margin-top: -6px;
+  border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); transform: rotate(45deg); transition: transform .3s, margin-top .3s;
+}
+.cselect.open .cselect-button::after { transform: rotate(-135deg); margin-top: -2px; }
+.cselect-button:focus-visible, .cselect.open .cselect-button { outline: none; border-color: var(--ink); }
+.cselect-button.is-placeholder { color: var(--taupe); }
+.cselect-list {
+  position: absolute; left: 0; right: 0; top: calc(100% + 8px); z-index: 20; margin: 0; padding: 8px 0; list-style: none;
+  background: var(--ivory); border: 1px solid rgba(43,39,35,.12); box-shadow: 0 24px 50px -24px rgba(43,39,35,.35);
+  max-height: 320px; overflow: auto; outline: none;
+  opacity: 0; transform: translateY(-6px); visibility: hidden; transition: opacity .25s, transform .25s, visibility .25s;
+}
+.cselect.up .cselect-list { top: auto; bottom: calc(100% + 8px); transform: translateY(6px); }
+.cselect.open .cselect-list { opacity: 1; transform: none; visibility: visible; }
+.cselect-option {
+  padding: 10px 20px 10px 34px; cursor: pointer; position: relative; font-size: 15px; color: var(--ink-soft);
+  transition: background .2s, color .2s;
+}
+.cselect-option.is-placeholder { color: var(--taupe); }
+.cselect-option.is-active { background: var(--sand); color: var(--ink); }
+.cselect-option[aria-selected="true"] { color: var(--ink); }
+.cselect-option[aria-selected="true"]::before {
+  content: ""; position: absolute; left: 16px; top: 50%; width: 5px; height: 5px; margin-top: -3px; border-radius: 50%; background: var(--taupe);
+}
+
 /* ENQUIRY POPUP */
 html.modal-open { overflow: hidden; }
 .enquire-modal {
